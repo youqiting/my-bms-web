@@ -24,7 +24,7 @@ module.exports = {
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
   publicPath: './',
-  outputDir: 'dma_web',
+  outputDir: 'bms_web',
   assetsDir: 'static',
   lintOnSave: false,// 代码检查 process.env.NODE_ENV === 'development',
   productionSourceMap: false,
