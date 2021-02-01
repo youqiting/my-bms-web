@@ -6,6 +6,8 @@ import api from './http/index' // 请求封装
 import components from './components/index'; //注册自定义组件
 import * as util from './utils/index';
 
+import './plugins/element.js' // element按需引入
+import 'element-ui/lib/theme-chalk/index.css'
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import '@/permission' // permission control
