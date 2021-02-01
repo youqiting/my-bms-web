@@ -1,6 +1,9 @@
 <template>
     <div>
         bPage
+
+       <p class="color-warn" @click="toNext()">二级的list</p>
+
     </div>
 </template>
 <script>
@@ -11,10 +14,10 @@ export default {
             
         }
     },
-    created(){
-        
-    },
     methods:{
+        toNext(){
+            this.$router.push("/bPage/list/123")
+        }
     }
 }
 </script>

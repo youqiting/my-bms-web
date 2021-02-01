@@ -40,22 +40,60 @@ export const constantRoutes = [
 	{
 		path: '/',
 		component: Layout,
-		redirect: "a",
+		redirect: "/aPage",
 		children: [{
-			path: 'a',
+			path: 'aPage',
 			name: 'aPage',
-			component: () => import('@/views/a/aPage'),	
-			meta: { title: 'a页面', icon: 'el-icon-data-line' }
+			component: () => import('@/views/a/aPage'),
+			meta: { title: 'a页面', icon: 'el-icon-tickets' }
 		}]
 	},
 	{
 		path: '/bPage',
 		component: Layout,
-		children: [{
-			path: '',
-			name: 'bPage',
-			component: () => import('@/views/b/bPage'),	
-			meta: { title: 'b页面', icon: 'el-icon-tickets' }
+		redirect: "/bPage/index",
+		meta: { title: 'b页面', icon: 'el-icon-tickets', activeMenu: "/bPage" },
+		children: [{// 一级 ---
+			path: 'index',
+			name: 'bPageIndex',
+			component: () => import('@/views/b/bPage'),
+			meta: { activeMenu: "/bPage" },
+			hidden: true,
+		}, {
+			path: 'list',
+			name: 'bPageList',
+			component: () => import('@/components/base/basePage'),
+			meta: { title: 'b页面list', activeMenu: "/bPage" },
+			hidden: true,
+			children: [{// 二级 ----
+					path: ':data',
+					component: () => import('@/views/b/bPageList'),
+					meta: { icon: 'el-icon-tickets', activeMenu: "/bPage" },
+					hidden: true,
+				}, {
+					path: 'info',
+					component: () => import('@/components/base/basePage'),
+					meta: { icon: 'el-icon-tickets', activeMenu: "/bPage" },
+					hidden: true,
+					children: [{// 三级 ----
+						path: ':data',
+						name: 'bPageListInfo',
+						component: () => import('@/views/b/bPageListInfo'),
+						meta: { title: 'b页面list-info', activeMenu: "/bPage" },
+						hidden: true
+					}, {
+						path: 'detail',
+						component: () => import('@/components/base/basePage'),
+						meta: { title: 'b页面list-info', activeMenu: "/bPage" },
+						hidden: true,
+						children: [{// 四级 ----
+							path: ":data",
+							name: "bPageListInfoDetail",
+							component: () => import('@/views/b/bPageListInfoDetail'),
+							meta: { title: 'b页面list-info', activeMenu: "/bPage" },
+						}]
+					}]
+				}]
 		}]
 	},
 

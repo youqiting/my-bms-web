@@ -1,22 +1,18 @@
 <template>
    <div>
-       aPage
-
+      <router-view></router-view>
    </div>
 </template>
 <script>
 export default {
-   name:"aPage",
+   name:"",
    data(){
       return{
-         
+      
       }
    },
-   created(){
-       
-   },
    methods:{
-       
+      
    }
 }
 </script>
