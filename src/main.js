@@ -9,6 +9,7 @@ import * as util from './utils/index';
 import './plugins/element.js' // element按需引入
 import 'element-ui/lib/theme-chalk/index.css'
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
+import '@/styles/index.scss' // global css
 
 import '@/permission' // permission control
 
