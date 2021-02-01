@@ -40,21 +40,21 @@ export const constantRoutes = [
 	{
 		path: '/',
 		component: Layout,
-		redirect: "dataSource",
+		redirect: "a",
 		children: [{
-			path: 'dataSource',
-			name: 'dataSource',
-			component: () => import('@/views/dataSource/dataSource'),	
+			path: 'a',
+			name: 'aPage',
+			component: () => import('@/views/a/aPage'),	
 			meta: { title: '数据源管理', icon: 'el-icon-data-line' }
 		}]
 	},
 	{
-		path: '/dorisDB',
+		path: '/bPage',
 		component: Layout,
 		children: [{
 			path: '',
-			name: 'dorisDB',
-			component: () => import('@/views/dorisDB/dorisDB'),	
+			name: 'bPage',
+			component: () => import('@/views/b/bPage'),	
 			meta: { title: 'doris数据库管理', icon: 'el-icon-tickets' }
 		}]
 	},
