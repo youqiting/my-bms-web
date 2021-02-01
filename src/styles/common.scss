@@ -1,0 +1,212 @@
+@import './mixin.scss';
+@import './variables.scss';
+/*
+    margin
+*/
+
+.margin-20{
+    margin:20px;
+}
+.margin-size-20{
+    margin:0 20px;
+}
+.margin-t-20{ // top
+    margin-top: 20px;
+}
+.margin-b-10{ // bottom
+    margin-bottom: 10px;
+}
+.margin-b-20{
+    margin-bottom: 20px;
+}
+.margin-b-none{
+    margin-bottom: 0;
+}
+.margin-l-15{ // left
+    margin-left: 15px;
+}
+.margin-l-10{
+    margin-left: 10px;
+}
+.margin-l-20{
+    margin-left: 20px;
+}
+.margin-r-10{ // right
+    margin-right: 10px;
+}
+.margin-r-15{
+    margin-right: 15px;
+}
+.margin-r-20{
+    margin-right: 20px;
+}
+
+/*
+    padding
+*/
+.padding-15{
+    padding: 15px;
+}
+.padding-20{
+    padding: 20px;
+}
+
+/*
+    text
+*/
+
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+
+.color-text{
+    color:$color-text !important;
+}
+.color-subText{
+    color:$color-text-l;
+}
+.color-success{
+    color:$color-theme !important;
+}
+.color-warn{
+    color:$color-warn !important;
+}
+.color-danger{
+    color:$color-danger !important;
+}
+
+.font-12{
+    font-size: 12px;
+}
+.font-14{
+    font-size: 14px;
+}
+.font-16{
+    font-size: 16px;
+}
+.font-18{
+    font-size: 18px;
+}
+.font-20{
+    font-size: 20px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+/*
+    flex
+*/
+.wrap{
+    flex-wrap: wrap;
+}
+
+/*
+    hover
+*/
+
+.hover-color-blue{
+    cursor: pointer;
+    &:hover{
+        color: $color-blue;
+    }
+}
+
+/*
+    其它
+*/
+.width-full{
+    width: 100%;
+}
+.page-title{
+    font-size: 20px;
+    font-weight: bold;
+}
+.grey-wrap{
+    padding: 20px;
+    background: #dbdbdb70;
+}
+.row-margin-b-10{
+    div{
+        margin-bottom: 10px;
+    }
+}
+.line{
+    border-top: 1px solid $color-border;
+}
+.relative{
+    position: relative;
+}
+.v-hidden{
+    visibility: hidden;
+}
+.hover-shadow{
+    @include hover-shadow();
+}
+
+.common-title{
+    font-size: 16px;
+    color: $color-text;
+    font-weight: 600;
+}
+.common-subtitle{
+    font-size: 14px;
+    color: $color-text;
+}
+.common-grey-tip{
+    font-size: 12px;
+    font-weight: 300;
+    color: #666666;
+    letter-spacing:1px;
+}
+.c-pointer{
+    cursor: pointer;
+}
+
+/* popover */
+.popover-block{
+    max-height: 600px;
+    overflow: auto;
+}
+// 细滚动条
+.mini-scrollbar{
+    // 修改火狐浏览器滚动条样式 ---
+    scrollbar-width: thin;
+    scrollbar-color: #d2d2d2 #f1f1f1;
+    //  ---
+  
+    //滚动条样式（火狐浏览器无效） ---
+    &::-webkit-scrollbar{
+      width: 5px;
+      background-color: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+      border-radius: 5px;
+      background-color:  #d2d2d2;
+    }
+  }
+  // 横拖-细滚动条
+  .mini-scrollbar-x{
+    // 修改火狐浏览器滚动条样式 ---
+    scrollbar-width: thin;
+    scrollbar-color: #d2d2d2 #f1f1f1;
+    //  ---
+  
+    //滚动条样式（火狐浏览器无效） ---
+    &::-webkit-scrollbar{
+      height: 7px;
+      background-color: #f1f1f1;
+      border-radius: 50px;
+    }
+    &::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+      border-radius: 50px;
+      background-color:  #d2d2d2;
+    }
+  }

@@ -1,0 +1,73 @@
+// 颜色定义规范
+// $color-background: #f2f7fa;
+$color-main-background: #F7F7F7;
+$color-white: #fff;
+$color-blue: #1296db;
+$color-menu: #264285;
+$color-menu-d: #0C2869;
+$color-menu-text-d: #264285;
+$color-menu-active : rgba(12, 40, 105, 0.4);
+// $color-menu: #353b4c;
+// $color-menu-d: #42495c;
+$color-theme : #2764F3;
+$color-theme-light : #f2f7fa;
+$color-text : #333333;
+$color-text-l : #999999;
+$color-text-d : #666666;
+
+$text-btn:#006EFF;
+$text-btn-hover:#006effa5;
+$blue-bg-l: #dcefff;
+$text-blue-bg:#edf8ff;
+$text-blue-hover:#d5eaf8;
+$text-grey-hover:#d8d8d8;
+$color-disable-bg:#f7f7f7;
+
+
+$color-warn:  #FF6A62; //#E6A23C;
+$color-danger: #ff0000;
+$color-success: #40c46a;
+$color-border: #DBDBDB;
+$color-border-l: #f7f7f7;
+$color-border-shadow: #dbdbdb6a;
+
+$color-btn-blue : #008EFF;//#76b0f4;
+$color-grey-l:#6A6F75;
+$color-grey-bg:#f2f2f2;
+//字体定义规范
+$font-size-small-s : 10px;
+$font-size-small : 12px;
+$font-size-medium : 14px;
+$font-size-medium-x : 16px;
+$font-size-large : 18px;
+$font-size-large-x : 22px;
+$font-size-large-xx : 24px;
+$font-size-large-xxx : 26px;
+
+// sidebar
+$menuText:  #7e94ef; //#bfcbd9;
+$menuActiveText:#0132e3;  //#031867;
+$subMenuActiveText:#14168b; //https://github.com/ElemeFE/element/issues/12951
+
+$menuBg:#ccdefd; //#304156;
+$menuHover:#ffffffcb; //#263445;
+
+$subMenuBg:#bae6fa;
+$subMenuHover:#93dafb;
+
+$sideBarWidth: 210px;
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+	colorText:$color-text;
+	colorBorder:$color-border;
+}

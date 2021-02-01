@@ -1,0 +1,39 @@
+@import './variables.scss';
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+  }
+}
+
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin hover-shadow( $shadow: 4px, $radius:4px) {
+  &:hover{
+    box-shadow: 0 (-$shadow) $shadow $color-border-shadow,$shadow 0 $shadow $color-border-shadow,0 $shadow $shadow $color-border-shadow,(-$shadow) 0 $shadow $color-border-shadow;
+  }
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  cursor: pointer;
+}
