@@ -19,6 +19,24 @@ Vue.use(components)
 Vue.prototype.$util = util
 Vue.config.productionTip = false
 
+//刷新保存状态
+if (localStorage.getItem("store")) {
+  store.replaceState(
+      Object.assign(
+          {},
+          store.state,
+          JSON.parse(localStorage.getItem("store"))
+      )
+  );
+  // localStorage.removeItem("store")
+}
+
+//监听，在页面刷新时将vuex里的信息保存到localStorage 里
+window.addEventListener("beforeunload", (e) => {
+  localStorage.setItem("store", JSON.stringify(store.state));
+  // sessionStorage.setItem("store", JSON.stringify(store.state));
+});
+
 new Vue({
   store,
   router,
