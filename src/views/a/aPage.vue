@@ -9,7 +9,7 @@ export default {
    name:"aPage",
    data(){
       return{
-            c
+         
       }
    },
    created(){
