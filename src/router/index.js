@@ -45,7 +45,7 @@ export const constantRoutes = [
 			path: 'a',
 			name: 'aPage',
 			component: () => import('@/views/a/aPage'),	
-			meta: { title: '数据源管理', icon: 'el-icon-data-line' }
+			meta: { title: 'a页面', icon: 'el-icon-data-line' }
 		}]
 	},
 	{
@@ -55,7 +55,7 @@ export const constantRoutes = [
 			path: '',
 			name: 'bPage',
 			component: () => import('@/views/b/bPage'),	
-			meta: { title: 'doris数据库管理', icon: 'el-icon-tickets' }
+			meta: { title: 'b页面', icon: 'el-icon-tickets' }
 		}]
 	},
 
