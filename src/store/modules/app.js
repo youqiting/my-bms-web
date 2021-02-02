@@ -9,6 +9,7 @@ const state = {
   device: 'desktop',
   isLoading: false,
   applyApp:[],
+  routerHistory:[],
 }
 
 const mutations = {
@@ -34,6 +35,12 @@ const mutations = {
   },
   UPDATE_APP: (state, val) => {
     state.applyApp = [...val]
+  },
+  clearRouterHistory(state){
+      state.routerHistory = [];
+  },
+  setRouterHistory(state, routerHistory) {
+      state.routerHistory = routerHistory;
   },
 }
 

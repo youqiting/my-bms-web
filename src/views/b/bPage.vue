@@ -2,7 +2,9 @@
     <div>
         bPage
 
-       <p class="color-warn" @click="toNext()">二级的list</p>
+        <p class="color-warn" @click="toNext()">二级的list</p>
+        <p></p>
+        <p class="color-warn" @click="toOrder()">一级的order</p>
 
     </div>
 </template>
@@ -16,8 +18,11 @@ export default {
     },
     methods:{
         toNext(){
-            this.$router.push("/bPage/list/123")
-        }
+            this.$router.push("/bPage/b/list/123")
+        },
+        toOrder(){
+            this.$router.push("/bPage/order")
+        },
     }
 }
 </script>

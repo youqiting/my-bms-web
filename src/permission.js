@@ -3,6 +3,9 @@ import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import getPageTitle from '@/utils/get-page-title'
 
+import store from '@/store'
+import * as util from '@/utils'
+
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
 const whiteList = ['/login'] // no redirect whitelist
@@ -14,6 +17,7 @@ router.beforeEach(async(to, from, next) => {
   // set page title
   document.title = getPageTitle(to.meta.title)
 
+  setRouterHistory_(to)
   next()
   NProgress.done()
 
@@ -63,3 +67,41 @@ router.afterEach(() => {
   // finish progress bar
   NProgress.done()
 })
+
+function setRouterHistory_(to_){
+  var to = {...to_}
+  var routerHistory = store.state.app.routerHistory;
+  var new_path = to.path.split("/").slice(0,3).join("/");
+  var title = to.meta && to.meta.title ? to.meta.title:""
+  var showBreadcrumb = util.isEmpty(to.meta.breadcrumb)? true: to.meta.breadcrumb;
+  if(routerHistory.length > 0 && title != "" && showBreadcrumb){
+      var old_path = routerHistory[routerHistory.length -1].router.split("/").slice(0,3).join("/");
+      if(old_path != new_path){ //不同模块菜单- 清空路由(面包屑数据)历史
+          store.commit("app/clearRouterHistory")
+          store.commit("app/setRouterHistory", [{router: to.path, title: title}])
+      }else{
+          var routerIndex = -1;
+          routerHistory.some((item,index)=>{
+              if(title == item.title){
+                  routerIndex = index
+                  return;
+              }
+          })
+          // 1、历史记录无此路由，则push一条(最多6条)；2、有则历史回到当前路由位置
+          if(routerIndex == -1){
+              if(routerHistory.length == 6){
+                  routerHistory[5] = {router: to.path, title: title}
+              }else{
+                  routerHistory.push({router: to.path, title: title})
+              }
+              store.commit("app/setRouterHistory", routerHistory)
+          }else{
+              store.commit("app/setRouterHistory", routerHistory.splice(0,routerIndex+1))
+          }
+      }
+  }else if(routerHistory.length == 0 && title != "" && showBreadcrumb){//初始时，直接push一条历史
+      routerHistory.push({router: to.path, title: title})
+      store.commit("app/setRouterHistory", routerHistory)
+  }
+  
+}

@@ -21,7 +21,9 @@ export default {
     },
     methods:{
         toNext(){
-            this.$router.push("/bPage/list/info/detail/123")
+            this.$router.push({path:"/bPage/b/list/info/detail/123",query:{
+                infoId: 11111
+            }})
         }
         
     }

@@ -17,11 +17,13 @@ import Layout from '@/layout'
  * redirect: noRedirect           if set noRedirect will no redirect in the breadcrumb
  * name:'router-name'             the name is used by <keep-alive> (must set!!!)
  * meta : {
-	roles: ['admin','editor']    control the page roles (you can set multiple roles)
 	title: 'title'               the name show in sidebar and breadcrumb (recommend set)
-	icon: 'svg-name'/'el-icon-x' the icon show in the sidebar
 	breadcrumb: false            if set false, the item will hidden in breadcrumb(default is true)
 	activeMenu: '/example/list'  if set path, the sidebar will highlight the path you set
+
+	// 未完善
+	roles: ['admin','editor']    control the page roles (you can set multiple roles)
+	icon: 'svg-name'/'el-icon-x' the icon show in the sidebar
   }
  */
 
@@ -52,48 +54,34 @@ export const constantRoutes = [
 		path: '/bPage',
 		component: Layout,
 		redirect: "/bPage/index",
-		meta: { title: 'b页面', icon: 'el-icon-tickets', activeMenu: "/bPage" },
-		children: [{// 一级 ---
-			path: 'index',
-			name: 'bPageIndex',
+		meta: { title: 'b页面管理', icon: 'el-icon-tickets', activeMenu: "/bPage" },
+		children: [{
+			path: 'b',
 			component: () => import('@/views/b/bPage'),
-			meta: { activeMenu: "/bPage" },
-			hidden: true,
-		}, {
-			path: 'list',
+			meta: { title: 'b页面',activeMenu: "/bPage" }
+		},{
+			path: 'b/list/:id',
 			name: 'bPageList',
-			component: () => import('@/components/base/basePage'),
-			meta: { title: 'b页面list', activeMenu: "/bPage" },
+			component: () => import('@/views/b/bPageList'),
+			meta: {  title: 'b页面-list',activeMenu: "/bPage" },
 			hidden: true,
-			children: [{// 二级 ----
-					path: ':data',
-					component: () => import('@/views/b/bPageList'),
-					meta: { icon: 'el-icon-tickets', activeMenu: "/bPage" },
-					hidden: true,
-				}, {
-					path: 'info',
-					component: () => import('@/components/base/basePage'),
-					meta: { icon: 'el-icon-tickets', activeMenu: "/bPage" },
-					hidden: true,
-					children: [{// 三级 ----
-						path: ':data',
-						name: 'bPageListInfo',
-						component: () => import('@/views/b/bPageListInfo'),
-						meta: { title: 'b页面list-info', activeMenu: "/bPage" },
-						hidden: true
-					}, {
-						path: 'detail',
-						component: () => import('@/components/base/basePage'),
-						meta: { title: 'b页面list-info', activeMenu: "/bPage" },
-						hidden: true,
-						children: [{// 四级 ----
-							path: ":data",
-							name: "bPageListInfoDetail",
-							component: () => import('@/views/b/bPageListInfoDetail'),
-							meta: { title: 'b页面list-info', activeMenu: "/bPage" },
-						}]
-					}]
-				}]
+		},{
+			path: 'b/list/info/:id',
+			name: 'bPageListInfo',
+			component: () => import('@/views/b/bPageListInfo'),
+			meta: {  title: 'b页面-list-info',activeMenu: "/bPage" },
+			hidden: true,
+		},{
+			path: 'b/list/info/detail/:id',
+			name: 'bPageListInfoDetail',
+			component: () => import('@/views/b/bPageListInfoDetail'),
+			meta: {  title: 'b页面-list-info-detail',activeMenu: "/bPage" },
+			hidden: true,
+		},{
+			path: 'order',
+			name: 'bPageOrder',
+			component: () => import('@/views/b/bPageOrder'),
+			meta: { title: 'b页面order', activeMenu: "/bPage" },
 		}]
 	},
 

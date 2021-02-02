@@ -21,7 +21,7 @@ export default {
     },
     methods:{
         toNext(){
-            this.$router.push("/bPage/list/info/123")
+            this.$router.push("/bPage/b/list/info/123")
         }
     }
 }
