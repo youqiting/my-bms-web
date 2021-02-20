@@ -2,7 +2,7 @@
     <div>
         bPageOrder
 
-       <p class="color-warn" @click="toNext()">一级的list</p>
+       <p class="color-warn" @click="toNext()">跳转到b页面</p>
     </div>
 </template>
 <script>

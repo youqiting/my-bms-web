@@ -126,7 +126,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "@/assets/styles/variable.scss";
+@import "@/styles/variables.scss";
 //旧进度条样式： @import "@/assets/styles/pageStyle/slider.scss";
 .box {
     margin: 100px auto 0;
@@ -163,7 +163,7 @@ export default {
         /*background: none repeat scroll 0 0 #5891f5;*/
         background: #fff;
         border-radius: 15px;
-        border: 2px solid $mtms-text;
+        border: 2px solid $color-btn-blue;
         /*-webkit-box-shadow: 0 -1px 1px #fc7701 inset;*/
     }
     .tips {
@@ -174,8 +174,7 @@ export default {
         line-height: 20px;
         // background: #fff;
         height: 20px;
-        color: $mtms-text;
-        // border: 1px solid $mtms-text;
+        color: $color-btn-blue;
         margin-left: -10px;
         width: 40px;
         text-align: center;

@@ -75,11 +75,11 @@ export default {
         },
         maxSize: {
             type: [Number, String],
-            default: SystemConst.image.size,
+            default:  2 * 1024 *1024,
         },
         maxSizeStr: {
             type: [String],
-            default: SystemConst.image.sizeStr,
+            default: '2M',
         },
         showTip: {
             type: [Number, Boolean],
@@ -222,7 +222,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/pageStyle/cropper.scss";
+@import "@/styles/pageStyle/cropper.scss";
 </style>
 
 <style>

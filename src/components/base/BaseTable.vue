@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import publicStyles from "@/assets/styles/variable.scss";
+
 export default {
   name: "BaseTable",
   props: {

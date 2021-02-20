@@ -89,6 +89,20 @@ export const constantRoutes = [
 	{ path: '*', redirect: '/404', hidden: true }
 ]
 
+export const asyncRoutes = [
+	{
+		path: '/roles',
+		component: Layout,
+		redirect: "/roles/index",
+		children: [{
+			path: 'index',
+			name: 'rolesIndex',
+			component: () => import('@/views/roles/index'),
+			meta: { title: 'roles', icon: 'el-icon-tickets' }
+		}]
+	},
+]
+
 const createRouter = () => new Router({
 	// mode: 'history', // require service support
 	scrollBehavior: () => ({ y: 0 }),
